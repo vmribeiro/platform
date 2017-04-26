@@ -14,6 +14,7 @@ namespace StoreDBEF
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<InfoUsuario> InfosUsuarios { get; set; }
         public DbSet<Telefone> Telefones { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -26,7 +27,9 @@ namespace StoreDBEF
         {
             modelBuilder.Entity<Usuario>().HasOne(u => u.InfoUsuario);
             modelBuilder.Entity<InfoUsuario>().HasMany(iu => iu.Telefones);
+            modelBuilder.Entity<InfoUsuario>().HasMany(iu => iu.Enderecos);
             modelBuilder.Entity<Telefone>().HasOne(t => t.InfoUsuario);
+            modelBuilder.Entity<Endereco>().HasOne(t => t.InfoUsuario);
             base.OnModelCreating(modelBuilder);
         }
     }

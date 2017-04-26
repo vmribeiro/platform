@@ -8,33 +8,14 @@ using StoreDBEF;
 namespace StoreDBEF.Migrations
 {
     [DbContext(typeof(EntidadesContext))]
-    partial class EntidadesContextModelSnapshot : ModelSnapshot
+    [Migration("20170426135222_updateTables3")]
+    partial class updateTables3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("StoreDBEF.Entidades.Endereco", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("CEP");
-
-                    b.Property<string>("Cidade");
-
-                    b.Property<string>("Complemento");
-
-                    b.Property<string>("Estado");
-
-                    b.Property<int>("InfoUsuarioId");
-
-                    b.Property<string>("Rua");
-
-                    b.HasKey("Id");
-                });
 
             modelBuilder.Entity("StoreDBEF.Entidades.InfoUsuario", b =>
                 {
@@ -43,7 +24,7 @@ namespace StoreDBEF.Migrations
 
                     b.Property<string>("Cpf");
 
-                    b.Property<DateTime>("DataNascimento");
+                    b.Property<string>("Endereco");
 
                     b.Property<string>("Nome");
 
@@ -82,13 +63,6 @@ namespace StoreDBEF.Migrations
                     b.Property<int>("Tipo");
 
                     b.HasKey("Id");
-                });
-
-            modelBuilder.Entity("StoreDBEF.Entidades.Endereco", b =>
-                {
-                    b.HasOne("StoreDBEF.Entidades.InfoUsuario")
-                        .WithMany()
-                        .HasForeignKey("InfoUsuarioId");
                 });
 
             modelBuilder.Entity("StoreDBEF.Entidades.InfoUsuario", b =>

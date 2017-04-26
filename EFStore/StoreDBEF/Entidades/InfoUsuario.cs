@@ -18,17 +18,22 @@ namespace StoreDBEF.Entidades
         
         public string Rg { get; set; }
 
-        public string Endereco { get; set; }
+        public DateTime DataNascimento { get; set; }
+        
 
         //Pertence a um Usuario
         public int UsuarioId { get; set; }
         public virtual Usuario Usuario { get; set; }
 
         //Possui vários telefones
-        public virtual ICollection<Telefone> Telefones { get; set; }
+        public virtual IList<Telefone> Telefones { get; set; }
+
+        //Possui vários endereços
+        public virtual IList<Endereco> Enderecos { get; set; }
 
         public InfoUsuario() {
             Telefones = new List<Telefone>();
+            Enderecos = new List<Endereco>();
         }
 
     }

@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace StoreDBEF.Entidades
 {
-    public class Usuario
+    public class Endereco
     {
         public int Id { get; set; }
-        
-        public string Email { get; set; }
-        
-        public string Senha { get; set; }
-        
-        public int Tipo { get; set; }
+        public string Estado { get; set; }
+        public string Cidade { get; set; }
+        public string CEP { get; set; }
+        public string Rua { get; set; }
+        public string Complemento { get; set; }
 
-        //Um usuario possui informações
         public int InfoUsuarioId { get; set; }
         public virtual InfoUsuario InfoUsuario { get; set; }
     }

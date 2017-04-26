@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="EntidadesContext.cs" />
+    <Compile Include="Entidades\Endereco.cs" />
     <Compile Include="Entidades\InfoUsuario.cs" />
     <Compile Include="Entidades\Telefone.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -122,6 +123,14 @@
     <Compile Include="Migrations\20170425193249_updateTables2.cs" />
     <Compile Include="Migrations\20170425193249_updateTables2.designer.cs">
       <DependentUpon>20170425193249_updateTables2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170426135222_updateTables3.cs" />
+    <Compile Include="Migrations\20170426135222_updateTables3.designer.cs">
+      <DependentUpon>20170426135222_updateTables3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170426143633_createEndereco.cs" />
+    <Compile Include="Migrations\20170426143633_createEndereco.designer.cs">
+      <DependentUpon>20170426143633_createEndereco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\EntidadesContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
