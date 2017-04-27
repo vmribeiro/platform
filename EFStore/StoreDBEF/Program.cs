@@ -13,11 +13,11 @@ namespace StoreDBEF
     {
         static void Main(string[] args)
         {
-            //Usuario u = new Usuario()
-            //{
-            //    Email = "123@123.123",
-            //    Senha = "123"
-            //};
+            Usuario u = new Usuario()
+            {
+                Email = "asdasdasd@123.123",
+                Senha = "1asdasdasd23"
+            };
 
             //InfoUsuario iu = new InfoUsuario()
             //{
@@ -30,57 +30,62 @@ namespace StoreDBEF
             //dao.Salva(u);
             //dao.SaveChanges();
 
-            EntidadesContext context = new EntidadesContext();
+            //EntidadesContext context = new EntidadesContext();
 
-            InfoUsuario iu2 = (from infousuario in context.InfosUsuarios
-                               where infousuario.UsuarioId == 5
-                               select infousuario).FirstOrDefault();
+            //InfoUsuario iu2 = (from infousuario in context.InfosUsuarios
+            //                   where infousuario.UsuarioId == 5
+            //                   select infousuario).FirstOrDefault();
 
-            Telefone t = new Telefone()
-            {
-                Numero = "4141-2331"
-            };
+            //Telefone t = new Telefone()
+            //{
+            //    Numero = "4141-2331"
+            //};
 
-            Telefone t2 = new Telefone()
-            {
-                Numero = "1123-1221"
-            };
-            
-            iu2.Telefones.Add(t);
-            iu2.Telefones.Add(t2);
-            
-            context.SaveChanges();
+            //Telefone t2 = new Telefone()
+            //{
+            //    Numero = "1123-1221"
+            //};
 
-            //Deve ter o include para ele incluir a navigation property
-            Usuario u2 = context.Usuarios.Include(usuario => usuario.InfoUsuario).
-                ThenInclude(ius => ius.Telefones).
-                FirstOrDefault(usuario => usuario.InfoUsuario.UsuarioId == 5) ;
+            //iu2.Telefones.Add(t);
+            //iu2.Telefones.Add(t2);
 
-            Endereco e = new Endereco() {
-                CEP = "213123",
-                Estado = "asdasd"
-            };
+            //context.SaveChanges();
 
-            u2.InfoUsuario.Enderecos.Add(e);
+            ////Deve ter o include para ele incluir a navigation property
+            //Usuario u2 = context.Usuarios.Include(usuario => usuario.InfoUsuario).
+            //    ThenInclude(ius => ius.Telefones).
+            //    FirstOrDefault(usuario => usuario.InfoUsuario.UsuarioId == 5) ;
 
-            context.SaveChanges();
+            //Endereco e = new Endereco() {
+            //    CEP = "213123",
+            //    Estado = "asdasd"
+            //};
 
-            Usuario u3 = context.Usuarios.Include(usuario => usuario.InfoUsuario).
-                ThenInclude(ius3 => ius3.Telefones).
-                FirstOrDefault(usuario => usuario.InfoUsuario.UsuarioId == 5);
+            //u2.InfoUsuario.Enderecos.Add(e);
 
-            Console.WriteLine(
-                u3.InfoUsuario.Nome + " " + u3.InfoUsuario.Sobrenome
-            );
+            //context.SaveChanges();
 
-            foreach (var tel in u3.InfoUsuario.Telefones)
-            {
-                Console.WriteLine("Tel: " + tel.Numero);
-            }
-            foreach (var end in u3.InfoUsuario.Enderecos)
-            {
-                Console.WriteLine("Endereco: " + end.CEP + " " + end.Estado);
-            }
+            //Usuario u3 = context.Usuarios.Include(usuario => usuario.InfoUsuario).
+            //    ThenInclude(ius3 => ius3.Telefones).
+            //    FirstOrDefault(usuario => usuario.InfoUsuario.UsuarioId == 5);
+
+            //Console.WriteLine(
+            //    u3.InfoUsuario.Nome + " " + u3.InfoUsuario.Sobrenome
+            //);
+
+            //foreach (var tel in u3.InfoUsuario.Telefones)
+            //{
+            //    Console.WriteLine("Tel: " + tel.Numero);
+            //}
+            //foreach (var end in u3.InfoUsuario.Enderecos)
+            //{
+            //    Console.WriteLine("Endereco: " + end.CEP + " " + end.Estado);
+            //}
+
+            IDAO<Usuario> dao = new UsuarioDAO();
+            dao.Salva(u);
+            dao.SaveChanges();
+
 
             Console.ReadLine();
         }
